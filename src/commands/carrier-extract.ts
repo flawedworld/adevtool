@@ -1,5 +1,8 @@
 import { Command, flags } from '@oclif/command'
 import { run } from '../util/process'
+import { readFile } from '../util/fs'
+
+import YAML from 'yaml'
 
 export default class CarrierExtract extends Command {
   static description = 'generate CarrierConfig and APN XML files'
@@ -10,14 +13,21 @@ export default class CarrierExtract extends Command {
   }
 
   static args = [
-    {name: 'config', description: 'path to device-specific YAML config', required: true},
+    {name: 'configPath', description: 'path to device-specific YAML config', required: true},
   ]
 
   async run() {
-    let {flags: {stockSrc}, args: {config: configPath}} = this.parse(CarrierExtract)
-    let carriersettings_folder = stockSrc + "product/etc/CarrierSettings"
-    let apns_out = "/tmp/adevtool-test/"
-    let carriersettings_out = "/tmp/adevtool-test/"
-    await run(__dirname + `/../../external/carriersettings-extractor/adevtool-run.bash ${carriersettings_folder} ${apns_out} ${carriersettings_out}`)
+    let {args: {configPath}, flags: {stockSrc}} = this.parse(CarrierExtract)
+
+    let config = YAML.parse(await readFile(configPath))
+    let vendor = "google"
+    let device = config.device.name
+
+    let factoryPath = `${stockSrc}/product/etc/CarrierSettings`
+    
+    let outDir = `vendor/${vendor}/${device}`
+    let proprietaryPath = `${outDir}/proprietary`
+    let overlaysPath = `${outDir}/overlays`
+    await run(__dirname + `/../../external/carriersettings-extractor/adevtool-run.bash ${factoryPath} ${proprietaryPath} ${overlaysPath}`)
   }
 }
