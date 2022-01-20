@@ -1,5 +1,8 @@
 import { Command, flags } from '@oclif/command'
 import { run } from '../util/process'
+import { readFile } from '../util/fs'
+
+import YAML from 'yaml'
 
 export default class ExtractFirmware extends Command {
   static description = 'extract firmware partitions'
@@ -10,12 +13,18 @@ export default class ExtractFirmware extends Command {
   }
 
   static args = [
-    {name: 'config', description: 'path to device-specific YAML config', required: true},
+    {name: 'configPath', description: 'path to device-specific YAML config', required: true},
   ]
 
   async run() {
-    let {flags: {factoryOtaPath}, args: {config: configPath}} = this.parse(ExtractFirmware)
-    let images_out = "/tmp/adevtool-test/"
-    await run(__dirname + `/../../external/extract_android_ota_payload/extract_android_ota_payload.py ${factoryOtaPath} ${images_out}`)
+    let {args: {configPath}, flags: {factoryOtaPath}} = this.parse(ExtractFirmware)
+    
+    // parse config file
+    let config = YAML.parse(await readFile(configPath))
+    let vendor = "google"
+    let device = config.device.name
+
+    let outDir = `vendor/${vendor}/${device}/firmware`
+    await run(__dirname + `/../../external/extract_android_ota_payload/extract_android_ota_payload.py ${factoryOtaPath} ${outDir}`)
   }
 }
