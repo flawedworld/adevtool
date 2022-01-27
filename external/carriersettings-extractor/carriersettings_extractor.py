@@ -14,6 +14,14 @@ from vendor.carrierId_pb2 import CarrierList as CarrierIdList
 
 pb_path = sys.argv[1]
 
+apn_output_path = sys.argv[2]
+
+carrierconfig_output_path = sys.argv[3]
+
+apn_output_file = apn_output_path + "apns-full-conf.xml"
+
+carrierconfig_output_file = carrierconfig_output_path + "vendor.xml"
+
 carrier_id_list = CarrierIdList()
 carrier_attribute_map = {}
 with open('carrier_list.pb', 'rb') as pb:
@@ -199,7 +207,7 @@ unwanted_configs = ["carrier_app_wake_signal_config",
 
 carrier_config_root = ET.Element('carrier_config_list')
 
-with open('apns-full-conf.xml', 'w', encoding='utf-8') as f:
+with open(apn_output_file, 'w', encoding='utf-8') as f:
     f.write('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n\n')
     f.write('<apns version="8">\n\n')
 
@@ -346,7 +354,7 @@ carrier_config_tree = ET.ElementTree(carrier_config_root)
 
     # Write carrier configs in numerical order of mcc+mnc, with non-MVNOs being first always
     # non-MVNOs must always be first otherwise MVNOs will break
-    with open(os.path.join(vendor_folder, 'vendor.xml'), 'w', encoding='utf-8') as f:
+    with open(os.path.join(vendor_folder, carrierconfig_output_file), 'w', encoding='utf-8') as f:
         f.write('<?xml version="1.0" encoding="utf-8" standalone="yes"?>\n')
         f.write('<carrier_config_list>\n')
         for configfile in carrier_config_mccmnc_aggregated:
@@ -362,5 +370,5 @@ carrier_config_tree = ET.ElementTree(carrier_config_root)
         f.close()
 
 # Test XML parsing.
-ET.parse('apns-full-conf.xml')
-ET.parse('vendor.xml')
+ET.parse(apn_output_file)
+ET.parse(carrierconfig_output_file)
