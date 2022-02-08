@@ -7,6 +7,13 @@ filters:
       - product/etc/sysconfig/dreamliner.xml
       - product/etc/sysconfig/game_overlay.xml
       - product/etc/sysconfig/quick_tap.xml
+      - product/etc/permissions/com.google.android.odad.xml
+      - product/etc/sysconfig/google-hiddenapi-package-whitelist.xml
+      - product/etc/sysconfig/google-staged-installer-whitelist.xml
+      - product/etc/sysconfig/GoogleCamera_6gb_or_more_ram.xml
+      - product/etc/permissions/split-permissions-google.xml
+      - product/etc/sysconfig/nga.xml
+      - product/etc/sysconfig/preinstalled-packages-product-pixel-2017-and-newer.xml
       # Boot animation
       - product/media/bootanimation.zip
       - product/media/bootanimation-dark.zip
@@ -37,6 +44,10 @@ filters:
       - product/etc/permissions/com.customermobile.preload.vzw.xml
       - system_ext/etc/permissions/com.verizon.llkagent.xml
       - system_ext/etc/permissions/vzw_mvs_permissions.xml
+      # other carrier trash
+      - product/etc/permissions/com.android.sdm.plugins.usccdm.xml
+      - product/etc/permissions/com.android.sdm.plugins.sprintdm.xml
+      - system_ext/etc/permissions/obdm_permissions.xml
       # Unused Google RIL
       - system_ext/etc/permissions/google-ril.xml
       - system_ext/framework/google-ril.jar
@@ -45,6 +56,8 @@ filters:
       # ssrestart files
       - vendor/etc/init/init.sscoredump.rc
       - vendor/bin/sscoredump
+      # unused dreamliner
+      - product/etc/permissions/com.google.android.apps.dreamliner.xml
     suffix:
       # Precompiled content
       - .art
@@ -77,6 +90,8 @@ filters:
       # Irrelevant charging animations
       - product/etc/res/images/charger
       - product/etc/res/values/charger
+      - vendor/etc/res/images/charger
+      - vendor/etc/res/values/charger
       # CarrierSettings
       - product/etc/CarrierSettings/
       # Irrelevant AVB keys
@@ -216,3 +231,10 @@ filters:
       - system/priv-app/NetworkPermissionConfigGoogle/
       - system/priv-app/NetworkStackGoogle/
       - system/priv-app/TagGoogle/
+      - product/app/GoogleCamera
+      - product/app/WallpapersBReel2020
+      - product/priv-app/SprintDM
+      - product/priv-app/SprintHM
+      - product/priv-app/USCCDM
+      - system_ext/priv-app/OBDM_Permissions
+      - system_ext/priv-app/obdm_stub
