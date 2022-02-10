@@ -47,6 +47,10 @@ filters:
       - ro.com.android.prov_mobiledata
       # privapps
       - ro.control_privapp_permissions
+      # no odex
+      - ro.cp_system_other_odex
+      # no incremental
+      - ro.incremental.enable
 
   sepolicy_dirs:
     match:
