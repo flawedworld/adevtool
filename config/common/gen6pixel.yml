@@ -27,7 +27,6 @@ filters:
       - product/etc/sysconfig/pixel_experience_2020.xml
       - product/etc/sysconfig/pixel_experience_2021_midyear.xml
       - product/etc/sysconfig/pixel_experience_2021.xml
-      - product/etc/sysconfig/google_build.xml
       - system_ext/etc/permissions/privapp-permissions-google-se.xml
       - vendor/etc/fstab.gs101-fips
       # eSIM
