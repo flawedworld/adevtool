@@ -69,6 +69,8 @@ filters:
       - .ogg
 
     prefix:
+      # Generic Google eSIM LPA app
+      - product/priv-app/EuiccGoogle
       # fs-verity certs for play store
       - product/etc/security/fsverity
       # APEX
