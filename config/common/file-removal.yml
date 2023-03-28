@@ -222,6 +222,8 @@ filters:
       - product/priv-app/DiagnosticsToolPrebuilt/
       # DreamlinerPrebuilt is the Pixel Stand app, DreamlinerUpdater is firmware updater for Pixel Stand
       - product/priv-app/Dreamliner
+      # Google LPA app
+      - product/priv-app/EuiccGoogle
       - product/priv-app/FilesPrebuilt/
       # "Google Connectivity Services", https://play.google.com/store/apps/details?id=com.google.android.apps.gcs
       - product/priv-app/GCS/
@@ -301,6 +303,8 @@ filters:
       - system_ext/priv-app/CarrierSetup/
       # Manages thermal throttling of cellular and Wi-Fi connectivity, com.google.android.connectivitythermalpowermanager
       - system_ext/priv-app/ConnectivityThermalPowerManager/
+      # Google LPA app
+      - system_ext/priv-app/EuiccGoogle
       - system_ext/priv-app/FactoryOtaPrebuilt/
       - system_ext/priv-app/GoogleFeedback/
       - system_ext/priv-app/GoogleServicesFramework/
