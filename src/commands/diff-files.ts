@@ -46,9 +46,9 @@ export default class DiffFiles extends Command {
       let newAdded = diffLists(filesRef, filesNew)
       let newRemoved = diffLists(filesNew, filesRef)
 
-      newRemoved.forEach(f => this.log(chalk.red(`    ${f}`)))
+      newRemoved.forEach(f => this.log(chalk.red(`-    ${f}`)))
       if (all) {
-        newAdded.forEach(f => this.log(chalk.green(`    ${f}`)))
+        newAdded.forEach(f => this.log(chalk.green(`+    ${f}`)))
       }
 
       this.log()

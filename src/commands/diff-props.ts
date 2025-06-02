@@ -67,10 +67,10 @@ export default class DiffProps extends Command {
     for (let [partition, changes] of partChanges.entries()) {
       this.log(chalk.bold(partition))
 
-      forEachPropLine(changes.removed, p => this.log(chalk.red(`    ${p}`)))
+      forEachPropLine(changes.removed, p => this.log(chalk.red(`-    ${p}`)))
       if (all) {
-        forEachPropLine(changes.added, p => this.log(chalk.green(`    ${p}`)))
-        forEachPropLineModified(changes.modified, p => this.log(`    ${p}`))
+        forEachPropLine(changes.added, p => this.log(chalk.green(`+    ${p}`)))
+        forEachPropLineModified(changes.modified, p => this.log(`M    ${p}`))
       }
 
       this.log()

@@ -53,9 +53,9 @@ export default class DiffVintf extends Command {
       let newAdded = diffVintfHals(halsRef, halsNew)
       let newRemoved = diffVintfHals(halsNew, halsRef)
 
-      getHalFqNames(newRemoved).forEach(f => this.log(chalk.red(`    ${f}`)))
+      getHalFqNames(newRemoved).forEach(f => this.log(chalk.red(`-    ${f}`)))
       if (all) {
-        getHalFqNames(newAdded).forEach(f => this.log(chalk.green(`    ${f}`)))
+        getHalFqNames(newAdded).forEach(f => this.log(chalk.green(`+    ${f}`)))
       }
 
       if (outPath != undefined) {
