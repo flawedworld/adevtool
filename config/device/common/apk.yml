@@ -223,54 +223,6 @@ package_inclusions:
       # it due to the fs-verity requirements for system package updates.
       - isolate_from_gmscore_and_finsky
 
-  com.google.android.euicc:
-    max_known_version: 235496
-    include_uses_permissions:
-      - android.permission.ACCESS_NETWORK_STATE
-      - android.permission.CAMERA
-      - android.permission.FOREGROUND_SERVICE
-      - android.permission.INTERNET
-      - android.permission.QUERY_ALL_PACKAGES
-      - android.permission.RECEIVE_BOOT_COMPLETED
-      - android.permission.USE_BIOMETRIC
-      - android.permission.VIBRATE
-      - com.google.android.apps.scone.connectivitymonitor.permission.WRITE_NIMBUS_DATA
-      - com.google.android.euicc.permission.INTERNAL_BROADCAST
-      - com.google.android.providers.gsf.permission.READ_GSERVICES
-      - com.google.android.providers.gsf.permission.READ_GSERVICES
-      - com.google.android.setupwizard.READ_DEVICE_ORIGIN_FIRST_PARTY
-      - com.google.android.setupwizard.SETUP_COMPAT_SERVICE
-      - com.qualcomm.permission.USE_QCRIL_MSG_TUNNEL
-    pregrantable_permissions:
-      - android.permission.CONNECTIVITY_USE_RESTRICTED_NETWORKS
-      - android.permission.MANAGE_SUBSCRIPTION_PLANS
-      - android.permission.MODIFY_PHONE_STATE
-      - android.permission.POST_NOTIFICATIONS
-      - android.permission.READ_NETWORK_USAGE_HISTORY
-      - android.permission.READ_PRIVILEGED_PHONE_STATE
-      - android.permission.READ_SUBSCRIPTION_PLANS
-      - android.permission.REAL_GET_TASKS
-      - android.permission.REBOOT
-      - android.permission.START_ACTIVITIES_FROM_BACKGROUND
-      - android.permission.START_FOREGROUND_SERVICES_FROM_BACKGROUND
-      - android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS
-      - android.permission.WRITE_SECURE_SETTINGS
-      - com.android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS
-      - com.google.android.permission.USE_GRIL
-    remove_permissions:
-      # Carrier apps aren't shipped on GrapheneOS, these permissions are needed only to
-      # install/enable them
-      - android.permission.CHANGE_COMPONENT_ENABLED_STATE
-      - com.android.permission.INSTALL_EXISTING_PACKAGES
-    flags:
-      # EuiccGoogle is a privileged app, block it from interacting with unprivileged
-      # parts of sandboxed Google Play
-      - isolate_from_gmscore_and_finsky
-
-  com.google.android.euiccoverlay:
-    max_known_version: auto
-    include_uses_permissions:
-      - com.google.android.euiccoverlay.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
 
   com.google.android.modem.pms:
     max_known_version: 1
@@ -659,6 +611,8 @@ package_exclusions:
   - com.google.android.documentsui
   - com.google.android.dreamlinerupdater
   - com.google.android.edu.harnesssettings
+  - com.google.android.euicc
+  - com.google.android.euiccoverlay
   - com.google.android.ext.services
   - com.google.android.ext.shared
   - com.google.android.extservices

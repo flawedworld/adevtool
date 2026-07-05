@@ -549,8 +549,6 @@ PRODUCT_PACKAGES += \
 
 # file-based packages
 PRODUCT_PACKAGES += \
-    EuiccGoogle \
-    EuiccGoogleOverlay \
     EuiccSupportPixel \
     EuiccSupportPixelPermissions \
     HbmSVManager \

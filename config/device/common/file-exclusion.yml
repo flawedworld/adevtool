@@ -70,6 +70,8 @@ filters:
       - product/framework/libhwinfo.jar
       - product/media/bootanimation-dark.zip
       - product/media/bootanimation.zip
+      - product/priv-app/EuiccGoogle/EuiccGoogle.apk
+      - system_ext/priv-app/EuiccGoogleOverlay/EuiccGoogleOverlay.apk
       - product/priv-app/DMService/lib/arm/libdmengine.so
       - product/priv-app/DMService/lib/arm/libdmjavaplugin.so
       - product/priv-app/DMService/lib/arm64/libdmengine.so

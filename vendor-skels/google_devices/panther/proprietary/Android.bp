@@ -26,17 +26,6 @@ cc_prebuilt_library_shared {
 }
 
 android_app_import {
-    name: "EuiccGoogle",
-    owner: "google_devices",
-    apk: "product/priv-app/EuiccGoogle/EuiccGoogle.apk",
-    optional_uses_libs: [ "androidx.window.extensions", "androidx.window.sidecar" ],
-    dex_preopt: { enabled: true },
-    preprocessed: true,
-    privileged: true,
-    product_specific: true,
-}
-
-android_app_import {
     name: "PixelCameraServices",
     owner: "google_devices",
     apk: "product/priv-app/PixelCameraServices/PixelCameraServices.apk",
@@ -290,17 +279,6 @@ cc_prebuilt_library_shared {
     check_elf_files: false,
     prefer: true,
     strip: { none: true },
-    system_ext_specific: true,
-}
-
-android_app_import {
-    name: "EuiccGoogleOverlay",
-    owner: "google_devices",
-    apk: "system_ext/priv-app/EuiccGoogleOverlay/EuiccGoogleOverlay.apk",
-    optional_uses_libs: [ "androidx.window.extensions", "androidx.window.sidecar" ],
-    dex_preopt: { enabled: true },
-    certificate: "platform",
-    privileged: true,
     system_ext_specific: true,
 }
 

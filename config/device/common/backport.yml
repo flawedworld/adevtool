@@ -8,7 +8,6 @@ backport_files:
   product:
     - etc/default-permissions/default-permissions.xml # for permissions allowlist
     - etc/permissions/privapp-permissions-google-p.xml # for privapp-permissions allowlist
-    - priv-app/EuiccGoogle/EuiccGoogle.apk
   system_ext:
     - app/OemRilHookService/OemRilHookService.apk
     - framework/google-ril.jar
@@ -17,7 +16,6 @@ backport_files:
     - lib64/com.google.edgetpu_vendor_service-V2-ndk.so
     - lib64/vendor.samsung_slsi.telephony.hardware.oemservice@1.0.so
     - lib64/vendor.samsung_slsi.telephony.hardware.radioExternal@1.0.so
-    - priv-app/EuiccGoogleOverlay/EuiccGoogleOverlay.apk
     - priv-app/EuiccSupportPixel-P23/EuiccSupportPixel-P23.apk
     - priv-app/EuiccSupportPixel/EuiccSupportPixel.apk
     - priv-app/EuiccSupportPixelPermissions/EuiccSupportPixelPermissions.apk
